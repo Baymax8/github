@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>segmentfault</title>
+    <link href="sfWeb.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <script src="jquery3.3.1.js"></script>
+    <script src="sfWeb.js"></script>
+</head>
+<body>
+    <div id="goToTop"><span>回到页面顶部</span></div>
+    <div class="head">
+        <div class="logo">
+            <a href="https://segmentfault.com/">segmentfault</a>
+        </div>
+        <div class="daohang">
+            <a href="#" style="color: #009a61">首页</a>
+            <a href="#">问答</a>
+            <a href="#">专栏</a>
+            <a href="#">讲堂</a>
+            <div id="fx">
+                <a href="#" >发现
+                    <i class="fa fa-caret-down"></i>
+                </a>
+            </div>
+
+            <input class="select" placeholder="搜索问题或关键字">
+            <div class="faxian" style="display: none">
+                <ul class="fu1">
+                    <li><a href="#">圈子&nbsp</a></li>
+                    <li><a href="#">活动&nbsp</a></li>
+                    <li><a href="#">标签&nbsp</a></li>
+                    <li><a href="#">找工作</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">徽章&nbsp</a></li>
+                    <li><a href="#">笔记</a></li>
+                    <li><a href="#">开发手册  </a></li>
+                    <li><a href="#">广告投放&nbsp</a></li>
+                </ul>
+                <ul class="fu2">
+                    <li>
+                        <a href="#">中美创投峰会区块链论坛</a>
+                        <p>-2018.7.21 周六-报名中</p>
+                    </li>
+                    <li>
+                        <a href="#">K8sMeetup 彩蛋版——聊聊开源落地的那些事儿</a>
+                        <p>北京-2018.7.21 周六-报名中</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="user">
+            <ul>
+                <li>
+                    <button class="create">创建
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <ul class="create1" style="display: none">
+                        <li>提问题</li>
+                        <li>发头条</li>
+                        <li>写文章</li>
+                        <li>记笔记</li>
+                        <li style="border-top: 1px solid darkgray;margin-top: 6px">草稿箱</li>
+                    </ul>
+                </li>
+                <li class="l5" id="tongzhi" >
+                    <i class="fa fa-bell-o fa-1g" style="color: darkgray;font-size: 25px;margin-top: 2px"></i>
+                    <div class="message" style="display: none">
+                        <div class="m1" >
+                            <div style="border-bottom: 2px solid #009a61" id="laba">
+                                <i class="fa fa-bullhorn" style="color: #009a61"></i>
+                            </div>
+                            <div>
+                                <i class="fa fa-commenting-o"></i>
+                            </div>
+                            <div>
+                                <i class="fa fa-thumbs-o-up "></i>
+                            </div>
+                            <div>
+                                <i class="fa fa-user-plus"></i>
+                            </div>
+                        </div>
+                        <div class="m2">
+                            <div id="laba2">
+                                <div><span>您获得了新徽章</span><span style="color: #009a61">支持者</span></div>
+                                <div><span><span style="color: #009a61">ggboy</span>回答了您的问题</span><span style="color: #009a61">
+                                dva搭建项目 使用命令行创建路由报错</span></div>
+                            </div>
+
+                        </div>
+                        <div class="m3">
+                        </div>
+                    </div>
+                </li>
+                <li class="l5">
+                    <i class="fa fa-envelope-o fa-1g" style="color: darkgray;font-size: 25px;margin-top: 2px"></i>
+                </li >
+                <li class="l5" id="user">
+                    <img  src="sfImgs/user.png" style="height: 30px;width: 30px;float: right;position: relative">
+                    <div class="user-message" style="display: none">
+                        <div class="um1">
+                            <span class="shengwang">1声望</span>
+                        </div>
+                        <div class="um2">
+                            <ul>
+                                <li>我的笔记</li>
+                                <li>我的收藏</li>
+                                <li>受邀回答</li>
+                                <li>付费回答</li>
+                            </ul>
+                            <ul>
+                                <li>我的主页</li>
+                                <li>我的档案</li>
+                                <li>我的资产</li>
+                                <li>个人设置</li>
+                                <li>推出</li>
+                            </ul>
+                        </div>
+                        <div class="um3">
+                            <a href="">用户申诉</a>
+                            <a href="">建议反馈</a>
+                            <a href="">邀请盆友</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+            <div style="background-color: #009a61;color: white;">
+                <i class="fa fa-newspaper-o"></i><span>为你推荐</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-thumbs-o-up"></i><span>近期热门</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-globe"></i><span>最新内容</span>
+            </div>
+            <div style="font-size: 14px">技术频道--------</div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>前端</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>后端</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>区块链</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>人工智能</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>Andriod</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>iOS</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>工具</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>安全</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>程序员</span>
+            </div>
+            <div class="ld1">
+                <i class="fa fa-newspaper-o"></i><span>更多标签</span>
+            </div>
+
+        </div>
+        <div class="center">
+            <div class="lunbo">
+                <img id="i1" src="sfImgs/1.png">
+                <img id="i2" src="sfImgs/2.png" style="display: none;">
+                <div id="daohang">
+                    <span id="0" style="width: 30px"></span>
+                    <span id="1"></span>
+                    <span id="2"></span>
+                    <span id="3"></span>
+                </div>
+            </div>
+            <div class="tuijain">
+                <div class="peizhi" >
+                    <span>我的订阅</span><span style="font-size: 13px;color: darkgray">  |只看推荐</span>
+                    <button class="peizhibtn" id="tuisong">推送配置</button>
+                </div>
+                <div class="peizhi2" style="display: none">
+                    <label>
+                        <input type="checkbox" id="nosee">不看自己
+                    </label>
+                    <label>
+                        <input type="checkbox" checked id="zhisee">只看推荐
+                    </label>
+                    <button id="baocun" class="peizhibtn" style="margin-left: 5px;background-color: #009a61;color: white">保存</button>
+                    <button class="peizhibtn" id="quxiao">取消</button>
+                </div>
+            </div>
+            <div class="neirong">
+                <div class="n1" style="margin-top: 20px">
+                    <div style="color: darkgray;font-size: 14px"><span>来自作者</span><a href="#">SegmentFault</a></div>
+                    <div style="margin-top: 10px">
+                        <a href="#" class="aimg" style="background-image: url('sfImgs/n1.jpg')">
+                        </a>
+                        <a href="#">
+                            <div><h4>SegmentFault 受邀作为 2018 区块链之星评审机构</h4></div>
+                            <div style="font-size: 13px">如你所见，有一大笔财富和价值正在被区块链创造出来。正如 Blockstack 的创始人
+                                Ryan Shea 和 AngelList 创始人 Naval Ravikant 的经典对话 中所描述的：“贝佐斯的净资产
+                            </div>
+                        </a>
+                    </div>
+                    <div style="margin-top: 10px;font-size: 14px"><i class="fa fa-thumbs-up " style="color: #009a61">×12 赞</i>
+                        <a href="#" style="margin-left: 10px">SegmentFault -7月12日</a></div>
+                </div>
+                <div class="n1" style="margin-top: 30px">
+                    <div style="color: darkgray;font-size: 14px"><span>来自作者</span><a href="#">SegmentFault</a></div>
+                    <div style="margin-top: 10px">
+                        <a href="#" class="aimg" style="background-image: url('sfImgs/n1.jpg')">
+                        </a>
+                        <a href="#">
+                            <div><h4>SegmentFault 受邀作为 2018 区块链之星评审机构</h4></div>
+                            <div style="font-size: 13px">如你所见，有一大笔财富和价值正在被区块链创造出来。正如 Blockstack 的创始人
+                                Ryan Shea 和 AngelList 创始人 Naval Ravikant 的经典对话 中所描述的：“贝佐斯的净资产
+                            </div>
+                        </a>
+                    </div>
+                    <div style="margin-top: 10px;font-size: 14px"><i class="fa fa-thumbs-up " style="color: #009a61">×12 赞</i>
+                        <a href="#" style="margin-left: 10px">SegmentFault -7月12日</a></div>
+                </div>
+                <div class="n1" style="margin-top: 30px">
+                    <div style="color: darkgray;font-size: 14px"><span>来自作者</span><a href="#">SegmentFault</a></div>
+                    <div style="margin-top: 10px">
+                        <a href="#" class="aimg" style="background-image: url('sfImgs/n1.jpg')">
+                        </a>
+                        <a href="#">
+                            <div><h4>SegmentFault 受邀作为 2018 区块链之星评审机构</h4></div>
+                            <div style="font-size: 13px">如你所见，有一大笔财富和价值正在被区块链创造出来。正如 Blockstack 的创始人
+                                Ryan Shea 和 AngelList 创始人 Naval Ravikant 的经典对话 中所描述的：“贝佐斯的净资产
+                            </div>
+                        </a>
+                    </div>
+                    <div style="margin-top: 10px;font-size: 14px"><i class="fa fa-thumbs-up " style="color: #009a61">×12 赞</i>
+                        <a href="#" style="margin-left: 10px">SegmentFault -7月12日</a></div>
+                </div>
+                <div class="n1" style="margin-top: 30px">
+                    <div style="color: darkgray;font-size: 14px"><span>来自作者</span><a href="#">SegmentFault</a></div>
+                    <div style="margin-top: 10px">
+                        <a href="#" class="aimg" style="background-image: url('sfImgs/n1.jpg')">
+                        </a>
+                        <a href="#">
+                            <div><h4>SegmentFault 受邀作为 2018 区块链之星评审机构</h4></div>
+                            <div style="font-size: 13px">如你所见，有一大笔财富和价值正在被区块链创造出来。正如 Blockstack 的创始人
+                                Ryan Shea 和 AngelList 创始人 Naval Ravikant 的经典对话 中所描述的：“贝佐斯的净资产
+                            </div>
+                        </a>
+                    </div>
+                    <div style="margin-top: 10px;font-size: 14px"><i class="fa fa-thumbs-up " style="color: #009a61">×12 赞</i>
+                        <a href="#" style="margin-left: 10px">SegmentFault -7月12日</a></div>
+                </div>
+                <div class="n1" style="margin-top: 30px">
+                    <div style="color: darkgray;font-size: 14px"><span>来自作者</span><a href="#">SegmentFault</a></div>
+                    <div style="margin-top: 10px">
+                        <a href="#" class="aimg" style="background-image: url('sfImgs/n1.jpg')">
+                        </a>
+                        <a href="#">
+                            <div><h4>SegmentFault 受邀作为 2018 区块链之星评审机构</h4></div>
+                            <div style="font-size: 13px">如你所见，有一大笔财富和价值正在被区块链创造出来。正如 Blockstack 的创始人
+                                Ryan Shea 和 AngelList 创始人 Naval Ravikant 的经典对话 中所描述的：“贝佐斯的净资产
+                            </div>
+                        </a>
+                    </div>
+                    <div style="margin-top: 10px;font-size: 14px"><i class="fa fa-thumbs-up " style="color: #009a61">×12 赞</i>
+                        <a href="#" style="margin-left: 10px">SegmentFault -7月12日</a></div>
+                </div>
+                <div class="n1" style="margin-top: 30px">
+                    <div style="color: darkgray;font-size: 14px"><span>来自作者</span><a href="#">SegmentFault</a></div>
+                    <div style="margin-top: 10px">
+                        <a href="#" class="aimg" style="background-image: url('sfImgs/n1.jpg')">
+                        </a>
+                        <a href="#">
+                            <div><h4>SegmentFault 受邀作为 2018 区块链之星评审机构</h4></div>
+                            <div style="font-size: 13px">如你所见，有一大笔财富和价值正在被区块链创造出来。正如 Blockstack 的创始人
+                                Ryan Shea 和 AngelList 创始人 Naval Ravikant 的经典对话 中所描述的：“贝佐斯的净资产
+                            </div>
+                        </a>
+                    </div>
+                    <div style="margin-top: 10px;font-size: 14px"><i class="fa fa-thumbs-up " style="color: #009a61">×12 赞</i>
+                        <a href="#" style="margin-left: 10px">SegmentFault -7月12日</a></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="right" >
+            <div class="r1">
+                <a href="#" style="color: darkgrey;margin-top: 18px;display: block">关于 SegmentFault 社区提问标准的一些解释</a>
+            </div>
+            <div style="height: 200px;background-image: url('sfImgs/guanggao.png');background-size: cover;margin-top: 20px">
+
+            </div>
+            <a href="#" style="font-size: 10px;color: #757575">想在上方展示广告？</a>
+            <div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
