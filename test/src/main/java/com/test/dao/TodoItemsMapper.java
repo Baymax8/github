@@ -5,6 +5,9 @@ import com.test.bean.TodoItemsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ *
+ */
 public interface TodoItemsMapper {
     long countByExample(TodoItemsExample example);
 
