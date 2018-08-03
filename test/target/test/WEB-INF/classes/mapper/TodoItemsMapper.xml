@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.TodoItemsMapper">
+    <resultMap id="BaseResultMap" type="com.test.bean.TodoItems">
+        <id column="TODO_ITEM_ID" jdbcType="BIGINT" property="todoItemId"/>
+        <result column="USER_ID" jdbcType="BIGINT" property="userId"/>
+        <result column="TODO_ITEM_TITLE" jdbcType="VARCHAR" property="todoItemTitle"/>
+        <result column="TODO_ITEM_CONTENT" jdbcType="VARCHAR" property="todoItemContent"/>
+        <result column="PRIORITY" jdbcType="VARCHAR" property="priority"/>
+        <result column="CREATION_DATE" jdbcType="TIMESTAMP" property="creationDate"/>
+        <result column="LAST_UPDATE_DATE" jdbcType="TIMESTAMP" property="lastUpdateDate"/>
+        <result column="COMMENTS" jdbcType="VARCHAR" property="comments"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    TODO_ITEM_ID, USER_ID, TODO_ITEM_TITLE, TODO_ITEM_CONTENT, PRIORITY, CREATION_DATE, 
+    LAST_UPDATE_DATE, COMMENTS
+  </sql>
+    <select id="selectByExample" parameterType="com.test.bean.TodoItemsExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from cux_todo_items
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cux_todo_items
+        where TODO_ITEM_ID = #{todoItemId,jdbcType=BIGINT}
+    </select>
+    <select id="selectByUserId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cux_todo_items
+        where USER_ID = #{userId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from cux_todo_items
+    where TODO_ITEM_ID = #{todoItemId,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByExample" parameterType="com.test.bean.TodoItemsExample">
+        delete from cux_todo_items
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.test.bean.TodoItems">
+    insert into cux_todo_items (TODO_ITEM_ID, USER_ID, TODO_ITEM_TITLE, 
+      TODO_ITEM_CONTENT, PRIORITY, CREATION_DATE, 
+      LAST_UPDATE_DATE, COMMENTS)
+    values (#{todoItemId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{todoItemTitle,jdbcType=VARCHAR}, 
+      #{todoItemContent,jdbcType=VARCHAR}, #{priority,jdbcType=VARCHAR}, #{creationDate,jdbcType=TIMESTAMP}, 
+      #{lastUpdateDate,jdbcType=TIMESTAMP}, #{comments,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.test.bean.TodoItems">
+        insert into cux_todo_items
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="todoItemId != null">
+                TODO_ITEM_ID,
+            </if>
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="todoItemTitle != null">
+                TODO_ITEM_TITLE,
+            </if>
+            <if test="todoItemContent != null">
+                TODO_ITEM_CONTENT,
+            </if>
+            <if test="priority != null">
+                PRIORITY,
+            </if>
+            <if test="creationDate != null">
+                CREATION_DATE,
+            </if>
+            <if test="lastUpdateDate != null">
+                LAST_UPDATE_DATE,
+            </if>
+            <if test="comments != null">
+                COMMENTS,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="todoItemId != null">
+                #{todoItemId,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="todoItemTitle != null">
+                #{todoItemTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="todoItemContent != null">
+                #{todoItemContent,jdbcType=VARCHAR},
+            </if>
+            <if test="priority != null">
+                #{priority,jdbcType=VARCHAR},
+            </if>
+            <if test="creationDate != null">
+                #{creationDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateDate != null">
+                #{lastUpdateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="comments != null">
+                #{comments,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.test.bean.TodoItemsExample" resultType="java.lang.Long">
+        select count(*) from cux_todo_items
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update cux_todo_items
+        <set>
+            <if test="record.todoItemId != null">
+                TODO_ITEM_ID = #{record.todoItemId,jdbcType=BIGINT},
+            </if>
+            <if test="record.userId != null">
+                USER_ID = #{record.userId,jdbcType=BIGINT},
+            </if>
+            <if test="record.todoItemTitle != null">
+                TODO_ITEM_TITLE = #{record.todoItemTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="record.todoItemContent != null">
+                TODO_ITEM_CONTENT = #{record.todoItemContent,jdbcType=VARCHAR},
+            </if>
+            <if test="record.priority != null">
+                PRIORITY = #{record.priority,jdbcType=VARCHAR},
+            </if>
+            <if test="record.creationDate != null">
+                CREATION_DATE = #{record.creationDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.lastUpdateDate != null">
+                LAST_UPDATE_DATE = #{record.lastUpdateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.comments != null">
+                COMMENTS = #{record.comments,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update cux_todo_items
+        set TODO_ITEM_ID = #{record.todoItemId,jdbcType=BIGINT},
+        USER_ID = #{record.userId,jdbcType=BIGINT},
+        TODO_ITEM_TITLE = #{record.todoItemTitle,jdbcType=VARCHAR},
+        TODO_ITEM_CONTENT = #{record.todoItemContent,jdbcType=VARCHAR},
+        PRIORITY = #{record.priority,jdbcType=VARCHAR},
+        CREATION_DATE = #{record.creationDate,jdbcType=TIMESTAMP},
+        LAST_UPDATE_DATE = #{record.lastUpdateDate,jdbcType=TIMESTAMP},
+        COMMENTS = #{record.comments,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.test.bean.TodoItems">
+        update cux_todo_items
+        <set>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="todoItemTitle != null">
+                TODO_ITEM_TITLE = #{todoItemTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="todoItemContent != null">
+                TODO_ITEM_CONTENT = #{todoItemContent,jdbcType=VARCHAR},
+            </if>
+            <if test="priority != null">
+                PRIORITY = #{priority,jdbcType=VARCHAR},
+            </if>
+            <if test="creationDate != null">
+                CREATION_DATE = #{creationDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateDate != null">
+                LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="comments != null">
+                COMMENTS = #{comments,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where TODO_ITEM_ID = #{todoItemId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.test.bean.TodoItems">
+    update cux_todo_items
+    set USER_ID = #{userId,jdbcType=BIGINT},
+      TODO_ITEM_TITLE = #{todoItemTitle,jdbcType=VARCHAR},
+      TODO_ITEM_CONTENT = #{todoItemContent,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=VARCHAR},
+      CREATION_DATE = #{creationDate,jdbcType=TIMESTAMP},
+      LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      COMMENTS = #{comments,jdbcType=VARCHAR}
+    where TODO_ITEM_ID = #{todoItemId,jdbcType=BIGINT}
+  </update>
+</mapper>
